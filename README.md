@@ -1,14 +1,12 @@
 # Arma 3 Tools launchers for Linux
 
-This package configures the Windows-only Arma 3 Tools suite for Linux through
-Steam Proton and installs desktop/application-menu launchers for:
+This package contains an ability for users to use certain features from Arma 3 Tools on Linux, specifically:
 
 - Object Builder
 - Addon Builder
 - TexView2
 
-It was developed and tested on Linux Mint with native Steam and Proton
-Experimental.
+It has been developed, tested, and utilised on Linux Mint 22.3, utilising the Steam Proton Experimental suite.
 
 ## Prerequisites
 
@@ -21,19 +19,17 @@ Experimental.
 
 Do not run the installer with `sudo`. The installer refuses to run as root.
 
-A separate Wine installation is not required. Steam Proton includes the Wine components used by these launchers.
-
 ## Installation
 
-Extract the ZIP, open a terminal in the extracted directory, and run:
+Extract the ZIP, open the terminal and set it to your extracted directory, and run:
 
 ```bash
 chmod +x install.sh uninstall.sh diagnose.sh
 ./install.sh
 ```
 
-The installer automatically detects common native-Steam locations. For a
-nonstandard Steam library, specify the Tools folder:
+The installer is set to automatically detect the native Steam locations. For a
+nonstandard Steam library, clarify the Tools folder:
 
 ```bash
 ARMA3_TOOLS_DIR="/path/to/steamapps/common/Arma 3 Tools" ./install.sh
@@ -49,7 +45,7 @@ PROTON_PATH="/path/to/Proton/proton" ./install.sh
 
 - `P:` is an internal Proton project drive. Object Builder should save here.
 - `~/Arma3Work-Proton` links to the same project files from Linux.
-- `L:` maps to the Linux desktop for TexView imports and exports.
+- `L:` maps to the Linux desktop for TexView2 imports and exports.
 - `H:` maps to the Linux home directory.
 - `S:` maps to the Steam library's `steamapps` directory.
 
@@ -69,9 +65,9 @@ them later.
 Object Builder receives a per-application Windows XP compatibility setting.
 This forces its legacy Save dialog and avoids a Wine
 `IFileSaveDialog::GetProperties` crash. It does not change the Windows version
-seen by TexView or Addon Builder.
+seen by TexView2 or Addon Builder.
 
-TexView's ImageToPAA configuration is copied into the prefix's `C:` drive so it
+TexView2's ImageToPAA configuration is copied into the prefix's `C:` drive so it
 does not depend on external Wine drive traversal.
 
 ## Persistence
@@ -116,7 +112,7 @@ Run:
 The uninstaller removes the launchers and registry settings created by this
 package and restores any drive mappings that existed before installation. It
 deliberately preserves `~/Arma3Work-Proton`, the internal `P:` project folder,
-and copied TexView support files to avoid deleting user data.
+and copied TexView2 support files to avoid deleting user data.
 
 ## Known scope
 
