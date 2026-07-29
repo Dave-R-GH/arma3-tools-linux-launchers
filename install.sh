@@ -314,8 +314,9 @@ write_launcher \
     "applications-graphics" \
     "$TEXVIEW"
 
-command -v update-desktop-database >/dev/null &&
-    update-desktop-database "$APP_DIR" >/dev/null 2>&1 || true
+if command -v update-desktop-database >/dev/null; then
+	update-desktop-database "$APP_DIR" >/dev/null 2>&1 || true
+fi
 
 {
     printf 'TOOLS_DIR=%q\n' "$TOOLS_DIR"

@@ -97,8 +97,9 @@ if [[ -L "$PROJECT_LINK" &&
     rm -f "$PROJECT_LINK"
 fi
 
-command -v update-desktop-database >/dev/null &&
-    update-desktop-database "$APP_DIR" >/dev/null 2>&1 || true
+if command -v update-desktop-database >/dev/null; then
+	update-desktop-database "$APP_DIR" >/dev/null 2>&1 || true
+fi
 
 rm -f "$STATE_FILE"
 rm -f "$MAPPINGS_FILE"
